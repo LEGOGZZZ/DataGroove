@@ -3,40 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DataGroove – L'histoire du vinyle</title>
+  <title>DataGroove - Le Retour du Vinyle</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="img/icone.png" type="image/x-icon">
 </head>
 <body>
 
-  <header>
-    <h1>DataGroove</h1>
-  </header>
+  <!-- SECTION 0 : Logo seul au chargement -->
+  <section id="intro">
+    <img src="img/logo.png" alt="Logo DataGroove" class="logo-intro">
+  </section>
 
-  <main>
-    <section class="intro">
-      <h2>Le retour du vinyle</h2>
+  <!-- SECTION 1 : Accueil avec texte + vinyle à gauche -->
+  <section id="accueil">
+    <img src="img/logo.png" alt="Logo DataGroove" class="logo-small">
+
+    <div class="accueil-content">
+      <img src="img/icone.png" alt="Vinyle qui tourne" class="vinyle-anim">
+      <p class="texte-accueil">
+        Dans une ère où le streaming écrase toute la concurrence, la manière de consommer la musique évolue constamment. <br><br>
+        Pourtant, un format iconique résiste, traverse les décennies et revient sur le devant de la scène : le vinyle. <br><br>
+        <strong>DataGroove explore, en données et en courbes, l’histoire fascinante du disque vinyle.</strong><br><br>
+        Chaque courbe trace une note, chaque année compose une mélodie, laissez les chiffres chanter l’histoire du vinyle.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 2 : Retour du vinyle en France -->
+  <section id="france" class="section">
+    <div class="container">
+      <h2>Le Retour du Vinyle en France</h2>
+      <!-- Graphique --> 
+      <div class="graph-placeholder">[Graphique à insérer ici]</div>
       <p>
         Rayé des radars pendant des décennies, le vinyle fait son grand retour.
-        Porté par la nostalgie, le plaisir de collectionner et le goût du son authentique, il séduit une nouvelle génération d’auditeurs.
-        Des États-Unis à la France, il dépasse à nouveau le CD : une première depuis les années 80. 
+        Porté par la nostalgie, le plaisir de collectionner et le goût du son authentique, il séduit une
+        nouvelle génération d’auditeurs. Des États-Unis à la France, il dépasse à nouveau le CD :
+        une première depuis les années 80.
       </p>
-    </section>
-
-    <section class="graphique">
-      <h2>Évolution des ventes de vinyles</h2>
-      <p>Découvrez comment les ventes de vinyles ont évolué au fil des années aux États-Unis.</p>
-      <!-- Futur Graphique -->
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-links">
-      <a href="mentions-legales.html">Mentions légales</a> |
-      <a href="sources.html">Sources</a> |
-      <a href="#top">Haut de page ↑</a>
     </div>
-    <p>© DataGroove 2025</p>
+  </section>
+
+  <!-- SECTION 3 : Retour du vinyle aux États-Unis -->
+  <section id="usa" class="section">
+    <div class="container">
+      <h2>Évolution des ventes de vinyles</h2>
+      <!-- Graphique -->
+      <div class="graph-placeholder">[Graphique USA à insérer ici]</div>
+      <p>
+        Découvrez comment les ventes de vinyles ont évolué au fil des années aux États-Unis.
+        Là où l’industrie semblait tourner la page, le disque vinyle a retrouvé une voix puissante,
+        redessinant le paysage musical américain.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 4 : Top 3 des vinyles 2024 -->
+  <section id="top3" class="section">
+    <div class="container">
+      <h2>Top 3 des Vinyles les Plus Achetés en France en 2024</h2>
+      <p>
+        Entre rééditions cultes et nouveaux artistes, voici les trois vinyles qui ont marqué
+        les platines françaises en 2024 :
+      </p>
+      <ol>
+        <li><strong>1. </strong>À compléter – Artiste / Album</li>
+        <li><strong>2. </strong>À compléter – Artiste / Album</li>
+        <li><strong>3. </strong>À compléter – Artiste / Album</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Footer avec mentions / sources / haut de page -->
+  <footer id="footer">
+    <div class="footer-links">
+      <a href="mentions.html">Mentions légales</a> |
+      <a href="sources.html">Sources</a> |
+      <a href="#accueil">Haut de page ▲</a>
+    </div>
+    <p class="copyright">
+      © 2025 - DataGroove | Projet étudiant
+    </p>
   </footer>
 
 </body>
