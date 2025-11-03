@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DataGroove - Le Retour du Vinyle</title>
   <link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="img/icone.png" type="image/x-icon">
+  <link rel="shortcut icon" href="img/icone.png" type="image/x-icon">
 </head>
 <body>
 
@@ -33,13 +33,62 @@
   <section id="france" class="section">
     <div class="container">
       <h2>Le Retour du Vinyle en France</h2>
-      <!-- Graphique --> 
-      <div class="graph-placeholder">[Graphique à insérer ici]</div>
-      <p>
+
+      <!-- Graphique SVG -->
+      <div class="graph-container">
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Axes -->
+          <line x1="60" y1="350" x2="580" y2="350" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+          <line x1="60" y1="50" x2="60" y2="350" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+
+          <!-- Courbe principale (vinyle) -->
+          <path 
+            d="M60,330 
+              C150,310 200,270 260,230 
+              S400,150 580,80" 
+            fill="none" 
+            stroke="rgba(255,130,0,0.9)" 
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+
+          <!-- Zone transparente sous la courbe -->
+          <path 
+            d="M60,330 
+              C150,310 200,270 260,230 
+              S400,150 580,80 
+              L580,350 L60,350 Z"
+            fill="rgba(255,130,0,0.2)"
+          />
+
+          <!-- Points bien alignés sur la courbe -->
+          <circle cx="60" cy="330" r="5" fill="#fff"/>
+          <circle cx="150" cy="310" r="5" fill="#fff"/>
+          <circle cx="200" cy="270" r="5" fill="#fff"/>
+          <circle cx="260" cy="230" r="5" fill="#fff"/>
+          <circle cx="400" cy="150" r="5" fill="#fff"/>
+          <circle cx="580" cy="80" r="5" fill="#fff"/>
+
+          <!-- Étiquettes des années -->
+          <text x="55" y="370" fill="#fff" font-size="12">2000</text>
+          <text x="145" y="370" fill="#fff" font-size="12">2012</text>
+          <text x="195" y="370" fill="#fff" font-size="12">2016</text>
+          <text x="255" y="370" fill="#fff" font-size="12">2020</text>
+          <text x="395" y="370" fill="#fff" font-size="12">2022</text>
+          <text x="575" y="370" fill="#fff" font-size="12">2024</text>
+
+          <!-- Légende -->
+          <text x="70" y="70" fill="#fff" font-size="14" opacity="0.7">
+            Ventes de vinyles (en millions d’unités)
+          </text>
+        </svg>
+      </div>
+
+      <p class="texte-graph">
         Rayé des radars pendant des décennies, le vinyle fait son grand retour.
-        Porté par la nostalgie, le plaisir de collectionner et le goût du son authentique, il séduit une
-        nouvelle génération d’auditeurs. Des États-Unis à la France, il dépasse à nouveau le CD :
-        une première depuis les années 80.
+        Porté par la nostalgie, le plaisir de collectionner et le goût du son authentique,
+        il séduit une nouvelle génération d’auditeurs. Des États-Unis à la France,
+        il dépasse à nouveau le CD : une première depuis les années 80.
       </p>
     </div>
   </section>
@@ -77,7 +126,7 @@
   <!-- Footer avec mentions / sources / haut de page -->
   <footer id="footer">
     <div class="footer-links">
-      <a href="mentions.html">Mentions légales</a> |
+      <a href="mentions-legales.html">Mentions légales</a> |
       <a href="sources.html">Sources</a> |
       <a href="#accueil">Haut de page ▲</a>
     </div>
