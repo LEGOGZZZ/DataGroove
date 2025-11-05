@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="img/icone.png" type="image/x-icon">
 </head>
+
 <body>
 
   <!-- SECTION 0 : Logo seul au chargement -->
@@ -136,20 +137,22 @@
   </footer>
 
     <!-- Barre de navigation latérale -->
-<nav class="side-nav">
-  <a href="#accueil" class="nav-btn" title="Accueil">
-    <img src="img/logo_accueil.png" alt="">
+<nav class="side-nav hidden">
+  <a href="#accueil" class="nav-btn" data-section="accueil" title="Accueil">
+    <img src="img/logo-accueil.png" alt="Accueil">
   </a>
-  <a href="#france" class="nav-btn" title="France">
-    <img src="img/logo diagrame chrome.png" alt="">
+  <a href="#france" class="nav-btn" data-section="france" title="France">
+    <img src="img/logo-diagrame-chrome.png" alt="France">
   </a>
-  <a href="#usa" class="nav-btn" title="USA">
-    <img src="img/logo_globe.png" alt="">
+  <a href="#usa" class="nav-btn" data-section="usa" title="USA">
+    <img src="img/logo-globe.png" alt="USA">
   </a>
-  <a href="#top3" class="nav-btn" title="Top 3">
-    <img src="img/logo classement chrome.png" alt="">
+  <a href="#top3" class="nav-btn" data-section="top3" title="Top 3">
+    <img src="img/logo-classement-chrome.png" alt="Top 3">
   </a>
 </nav>
+
+<script src="script.js"></script>
 
 </body>
 </html>
