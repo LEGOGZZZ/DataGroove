@@ -230,3 +230,61 @@ svg {
     margin-bottom: 20px;
   }
 }
+
+/* ---- NAVIGATION LATERALE ---- */
+
+.side-nav {
+  position: fixed;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 40px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}
+
+/* Boutons ronds contenant une image */
+.side-nav .nav-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: 0.25s ease-in-out;
+}
+
+/* Format des icônes */
+.side-nav .nav-btn img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
+}
+
+/* Effet hover */
+.side-nav .nav-btn:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+/* Scroll fluide */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Masquer la barre sur mobile */
+@media (max-width: 750px) {
+  .side-nav {
+    display: none;
+  }
+}
