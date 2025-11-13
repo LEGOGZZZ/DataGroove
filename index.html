@@ -32,65 +32,69 @@
 
   <!-- SECTION 2 : Retour du vinyle en France -->
   <section id="france" class="section">
-    <div class="container">
-      <h2 class="reveal-item">Le Retour du Vinyle en France</h2>
-
-      <!-- Graphique SVG -->
-      <div class="graph-container reveal-item">
-        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-          <!-- Axes -->
-          <line x1="60" y1="350" x2="580" y2="350" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-          <line x1="60" y1="50" x2="60" y2="350" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-
-          <!-- Courbe principale (vinyle) -->
-          <path 
-            d="M60,330 
-              C150,310 200,270 260,230 
-              S400,150 580,80" 
-            fill="none" 
-            stroke="rgba(255,130,0,0.9)" 
-            stroke-width="3"
-            stroke-linecap="round"
-          />
-
-          <!-- Zone transparente sous la courbe -->
-          <path 
-            d="M60,330 
-              C150,310 200,270 260,230 
-              S400,150 580,80 
-              L580,350 L60,350 Z"
-            fill="rgba(255,130,0,0.2)"
-          />
-
-          <!-- Points bien alignés sur la courbe -->
-          <circle cx="60" cy="330" r="5" fill="#fff"/>
-          <circle cx="150" cy="310" r="5" fill="#fff"/>
-          <circle cx="200" cy="270" r="5" fill="#fff"/>
-          <circle cx="260" cy="230" r="5" fill="#fff"/>
-          <circle cx="400" cy="150" r="5" fill="#fff"/>
-          <circle cx="580" cy="80" r="5" fill="#fff"/>
-
-          <!-- Étiquettes des années -->
-          <text x="55" y="370" fill="#fff" font-size="12">2000</text>
-          <text x="145" y="370" fill="#fff" font-size="12">2012</text>
-          <text x="195" y="370" fill="#fff" font-size="12">2016</text>
-          <text x="255" y="370" fill="#fff" font-size="12">2020</text>
-          <text x="395" y="370" fill="#fff" font-size="12">2022</text>
-          <text x="575" y="370" fill="#fff" font-size="12">2024</text>
-
-          <!-- Légende -->
-          <text x="70" y="70" fill="#fff" font-size="14" opacity="0.7">
-            Ventes de vinyles (en millions d’unités)
-          </text>
-        </svg>
+  <div class="container">
+    <h2>Le Retour du Vinyle en France</h2>
+    <div class="graph-container" style="position:relative;">
+      <svg id="svg-vinyle" viewBox="0 0 650 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graphique de l'évolution des ventes de vinyles en France" style="z-index:2; position:relative;">
+        <!-- Axes -->
+        <line x1="70" y1="340" x2="620" y2="340" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <line x1="70" y1="60" x2="70" y2="340" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <!-- Graduation axe Y -->
+        <g stroke="rgba(255,255,255,0.5)" stroke-width="1" font-size="12" fill="#ddd">
+          <line x1="65" y1="340" x2="70" y2="340"/><text x="40" y="345">0M</text>
+          <line x1="65" y1="290" x2="70" y2="290"/><text x="40" y="295">1M</text>
+          <line x1="65" y1="240" x2="70" y2="240"/><text x="40" y="245">2M</text>
+          <line x1="65" y1="190" x2="70" y2="190"/><text x="40" y="195">3M</text>
+          <line x1="65" y1="140" x2="70" y2="140"/><text x="40" y="145">4M</text>
+          <line x1="65" y1="90"  x2="70" y2="90"/><text x="40" y="95">5M</text>
+        </g>
+        <!-- Courbe -->
+        <polyline 
+          fill="none" 
+          stroke="#e84545"
+          stroke-width="5" 
+          points="70,330 170,315 220,287 320,245 470,175 600,162"
+          style="filter: drop-shadow(0px 3px 7px #af2929);"
+        />
+        <!-- Points interactifs -->
+        <g id="grp-points">
+          <circle class="graph-point" data-idx="0" cx="70" cy="330" r="10" fill="#fff" cursor="pointer"/>
+          <circle class="graph-point" data-idx="1" cx="170" cy="315" r="10" fill="#fff" cursor="pointer"/>
+          <circle class="graph-point" data-idx="2" cx="220" cy="287" r="10" fill="#fff" cursor="pointer"/>
+          <circle class="graph-point" data-idx="3" cx="320" cy="245" r="10" fill="#fff" cursor="pointer"/>
+          <circle class="graph-point" data-idx="4" cx="470" cy="175" r="10" fill="#fff" cursor="pointer"/>
+          <circle class="graph-point" data-idx="5" cx="600" cy="162" r="10" fill="#fff" cursor="pointer"/>
+        </g>
+        <!-- Labels années -->
+        <text x="60" y="365" fill="#fff" font-size="13">2000</text>
+        <text x="160" y="365" fill="#fff" font-size="13">2012</text>
+        <text x="210" y="365" fill="#fff" font-size="13">2016</text>
+        <text x="310" y="365" fill="#fff" font-size="13">2020</text>
+        <text x="460" y="365" fill="#fff" font-size="13">2022</text>
+        <text x="590" y="365" fill="#fff" font-size="13">2024</text>
+        <text x="90" y="80" fill="#fff" font-size="15" opacity="0.85">
+          L'évolution de la vente de vinyles en France
+        </text>
+      </svg>
+      <!-- Fiche tooltip dynamique -->
+      <div class="tooltip-fiche" id="tooltip-fiche" style="display:none;">
+        <div class="pop-fiche">Cette année :</div>
+        <div class="chiffre-fiche" id="chiffre-fiche">0,0M</div>
+        <div class="pop-fiche">Vinyle populaire:</div>
+        <div class="titre-fiche" id="titre-vinyle">Album/Artiste</div>
+        <div class="annee-fiche" id="annee-fiche">Année</div>
+        <img id="cover-fiche" src="" alt="cover" class="img-fiche" />
+        <button class="btn-audio" id="btn-audio" onclick="event.stopPropagation(); document.getElementById('audio-fiche').play()">Écouter un extrait</button>
+        <div class="volume-control">
+          <label for="volume-slider" class="volume-label">Volume</label>
+          <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.02" value="0.5" aria-label="Contrôle du volume sonore" />
+        </div>
+        <audio id="audio-fiche" src="" controls style="display:none;"></audio>
+        <!-- Ajout lien YouTube pour écouter entièrement -->
+        <a href="" id="full-track-link" class="full-track-link" target="_blank" rel="noopener noreferrer" style="display:block; margin-top:14px; color:#b0b0b0; text-align:center; font-weight:500; text-decoration:none; border-radius:6px; padding:6px 0 4px 0; transition: background 0.18s, color 0.18s;">
+          Écouter le morceau en entier
+        </a>
       </div>
-
-      <p class="texte-graph reveal-item">
-        Rayé des radars pendant des décennies, le vinyle fait son grand retour.
-        Porté par la nostalgie, le plaisir de collectionner et le goût du son authentique,
-        il séduit une nouvelle génération d’auditeurs. Des États-Unis à la France,
-        il dépasse à nouveau le CD : une première depuis les années 80.
-      </p>
     </div>
     <div class="texte-graph" style="text-align:left; margin-left:0;">
       Le vinyle, longtemps oublié, s’est imposé comme le symbole d’un retour à l’authentique. <br><br>
