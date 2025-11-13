@@ -175,19 +175,19 @@ svg {
 }
 
 /* ------------------------------
-    SECTION 4 - TOP 3
+   SECTION 4 - TOP 10
 ------------------------------ */
-#top3 h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+#top10 h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
-#top3 ol {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    padding-left: 20px;
+#top10 ol {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  padding-left: 20px;
 }
-#top3 li {
-    margin-bottom: 10px;
+#top10 li {
+  margin-bottom: 10px;
 }
 
 /* ------------------------------
