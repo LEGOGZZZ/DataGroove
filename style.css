@@ -1,178 +1,177 @@
 /* ------------------------------
-   GLOBAL
+    GLOBAL
 ------------------------------ */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-image: url('img/fond.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  color: white;
+    font-family: 'Arial', sans-serif;
+    /* RESTAURATION : Fond d'origine */
+    background-image: url('img/fond.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
 }
 
 /* Style général des sections */
 .section {
-  padding: 100px 10%;
+    padding: 100px 10%;
+    position: relative; /* Utile pour les éléments enfants */
 }
 
 /* Liens */
 a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* ------------------------------
-   SECTION 0 - INTRO (logo plein écran)
+    SECTION 0 - INTRO (logo plein écran)
+------------------------------ */
+/* ------------------------------
+    SECTION 0 - INTRO (logo plein écran)
 ------------------------------ */
 #intro {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.7);
-
-  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: cover;
-
-  mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
-  mask-repeat: no-repeat;
-  mask-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Le dégradé qui disparaît en bas */
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.8) 0%,   /* Sombre en haut */
+        rgba(0, 0, 0, 0.7) 50%,  /* Sombre au centre (pour le logo) */
+        rgba(0, 0, 0, 0.0) 100%  /* Complètement transparent en bas */
+    );
 }
 
+/* RESTAURATION : La taille et l'animation du logo */
 .logo-intro {
-  width: 600px;
-  animation: fadeIn 1.5s ease-in-out;
+    width: 600px;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Animation d’apparition */
+/* RESTAURATION : L'animation elle-même */
 @keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
 }
-
 /* ------------------------------
-   SECTION 1 - ACCUEIL
+    SECTION 1 - ACCUEIL
 ------------------------------ */
 #accueil {
-  position: relative;
-  min-height: 100vh;
-  padding: 120px 10% 80px;
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 10% 80px;
 }
 
 #accueil .logo-small {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 400px;
-  z-index: 1000;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    z-index: 1000;
 }
 
 /* Contenu accueil */
 .accueil-content {
-  display: flex;
-  align-items: center;
-  gap: 50px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
 }
 
 .texte-accueil {
-  font-size: 1.3rem;
-  line-height: 1.6;
+    font-size: 1.3rem;
+    line-height: 1.6;
 }
 
 /* Vinyle à gauche qui tourne */
 .vinyle-anim {
-  width: 1000px;
-  animation: rotation 4s linear infinite;
+    width: 1000px;
+    animation: rotation 4s linear infinite;
 }
 
 @keyframes rotation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* ------------------------------
-   SECTION 2 - RETOUR DU VINYLE EN FRANCE
+    CONTENEUR DE SECTION STANDARD (Glassmorphism)
 ------------------------------ */
-#france {
-  background: url('fond-vinyle.jpg') center/cover no-repeat;
-  color: #fff;
-  padding: 100px 10%;
-  position: relative;
-}
 
-#france .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  border-radius: 24px;
-  padding: 60px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  text-align: center;
+/* STANDARDISATION : S'applique à #france, #usa, #top3 */
+.section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.08); /* Fond verre neutre */
+    backdrop-filter: blur(15px);
+    border-radius: 24px;
+    padding: 60px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
 #france h2 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 40px;
-  font-family: "Poppins", "Helvetica Neue", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    font-family: "Poppins", "Helvetica Neue", sans-serif;
 }
 
 .graph-container {
-  width: 100%;
-  margin: 0 auto 50px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  padding: 30px;
+    width: 100%;
+    margin: 0 auto 50px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    padding: 30px;
 }
 
 svg {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 #france .texte-graph {
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.7;
-  max-width: 800px;
-  margin: 0 auto;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* ------------------------------
-   SECTION 3 - VINYLE USA
+    SECTION 3 - VINYLE USA
 ------------------------------ */
 #usa h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 #usa .graph-placeholder {
-  width: 100%;
-  height: 300px;
-  border: 2px dashed white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+    width: 100%;
+    height: 300px;
+    border: 2px dashed white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 #usa p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 /* ------------------------------
@@ -192,172 +191,149 @@ svg {
 }
 
 /* ------------------------------
-   FOOTER
+    FOOTER
 ------------------------------ */
 #footer {
-  text-align: center;
-  padding: 40px 0;
-  background: rgba(0, 0, 0, 0.7);
-  font-size: 0.9rem;
+    text-align: center;
+    padding: 40px 0;
+    /* RESTAURATION : Fond sombre pour le footer */
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 0.9rem;
 }
 
 .footer-links {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .footer-links a {
-  margin: 0 5px;
-  font-weight: bold;
+    margin: 0 5px;
+    font-weight: bold;
 }
 
 .footer-links a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* ------------------------------
-   RESPONSIVE (tablettes, mobile)
+    RESPONSIVE (tablettes, mobile)
 ------------------------------ */
 @media (max-width: 768px) {
-  .accueil-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .vinyle-anim {
-    margin-bottom: 20px;
-  }
+    .accueil-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .vinyle-anim {
+        margin-bottom: 20px;
+    }
+    .side-nav {
+        display: none; /* Cache la nav latérale sur mobile */
+    }
 }
 
-/* ---- SIDEBAR (Stratégie "Position Absolute" - LA BONNE !) ---- */
-
-/* Le conteneur principal de la nav */
+/* ---- SIDEBAR (Inchangée) ---- */
 .side-nav {
-  position: fixed;
-  right: 3%;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding: 18px 12px;
-  background: rgba(255,255,255,0.10);
-  backdrop-filter: blur(14px);
-  border-radius: 50px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-  z-index: 1000;
-  box-sizing: border-box;
+    position: fixed;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px 12px;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(14px);
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    z-index: 1000;
+    box-sizing: border-box;
 }
-
-/* 1. Le bouton <a> (devient "position: relative") */
+/* ... (tout le reste de votre code .side-nav est inchangé) ... */
 .side-nav .nav-btn {
-  box-sizing: border-box;
-  position: relative; /* IMPORTANT: pour positionner le label */
-  width: 52px;
-  height: 52px;
-  padding: 0;
-  margin: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.25);
-  text-decoration: none;
-  color: white;
-  overflow: hidden; /* Masque le label qui dépasse */
-  transition: width 0.35s ease, border-radius 0.35s ease, background 0.35s ease;
+    box-sizing: border-box;
+    position: relative; 
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.25);
+    text-decoration: none;
+    color: white;
+    overflow: hidden; 
+    transition: width 0.35s ease, border-radius 0.35s ease, background 0.35s ease;
 }
-
-/* 2. Le wrapper interne (gère TOUT le centrage) */
 .side-nav .nav-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* PAR DÉFAUT: centre l'icône */
-  box-sizing: border-box;
-  
-  /* C'est ce qui va bouger l'icône */
-  padding-left: 0; /* par défaut */
-  transition: justify-content 0.35s ease, padding-left 0.35s ease;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    box-sizing: border-box;
+    padding-left: 0; 
+    transition: justify-content 0.35s ease, padding-left 0.35s ease;
 }
-
-/* 3. L'icône (simple) */
 .side-nav .nav-content img {
-  width: 26px;
-  height: 26px;
-  display: block;
-  object-fit: contain;
-  transition: transform 0.28s ease, width 0.28s ease, height 0.28s ease;
-  flex-shrink: 0; /* S'assure qu'elle ne soit jamais écrasée */
+    width: 26px;
+    height: 26px;
+    display: block;
+    object-fit: contain;
+    transition: transform 0.28s ease, width 0.28s ease, height 0.28s ease;
+    flex-shrink: 0; 
 }
-
-/* 4. Le label (maintenant en "position: absolute") */
-.side-nav .nav-label { /* On cible le label directement */
-  position: absolute; /* !!! LA CLÉ !!! */
-  top: 50%;
-  
-  /* Positionné à gauche, à côté de l'icône (14px padding + 28px icone + 8px gap) */
-  left: 50px; 
-  transform: translateY(-50%) translateX(-8px); /* Centré verticalement, décalé à droite */
-  
-  opacity: 0;
-  white-space: nowrap;
-  font-weight: 600;
-  font-size: 0.92rem;
-  pointer-events: none; /* Ne peut pas être cliqué */
-  
-  /* Transition avec un léger délai pour que ce soit fluide */
-  transition: opacity 0.28s ease 0.1s, transform 0.28s ease 0.1s;
+.side-nav .nav-label { 
+    position: absolute; 
+    top: 50%;
+    left: 50px; 
+    transform: translateY(-50%) translateX(-8px); 
+    opacity: 0;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 0.92rem;
+    pointer-events: none; 
+    transition: opacity 0.28s ease 0.1s, transform 0.28s ease 0.1s;
 }
-
-/* --- HOVER --- */
-
-/* 5. Le bouton au survol (s'élargit) */
 .side-nav .nav-btn:hover {
-  width: 150px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.35);
-  box-shadow: 0 0 14px rgba(255,255,255,0.7);
+    width: 150px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.35);
+    box-shadow: 0 0 14px rgba(255,255,255,0.7);
 }
-
-/* 6. Le wrapper interne au survol (pousse l'icône) */
 .side-nav .nav-btn:hover .nav-content {
-  justify-content: flex-start; /* Aligne l'icône à gauche */
-  padding-left: 14px; /* Crée l'espace à gauche */
+    justify-content: flex-start; 
+    padding-left: 14px; 
 }
-
-/* 7. L'icône au survol (grandit un peu) */
 .side-nav .nav-btn:hover .nav-content img {
-  width: 28px;
-  height: 28px;
+    width: 28px;
+    height: 28px;
 }
-
-/* 8. Le label au survol (il apparaît) */
 .side-nav .nav-btn:hover .nav-label {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0); /* Vient à sa place */
-  pointer-events: auto;
+    opacity: 1;
+    transform: translateY(-50%) translateX(0); 
+    pointer-events: auto;
 }
-
-/* --- ACTIVE --- */
-
-/* 9. État actif (rond et icône centré) */
 .side-nav .nav-btn.active {
-  /* On ne met QUE les styles visuels */
-  background: rgba(255,255,255,0.45);
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.85);
+    background: rgba(255,255,255,0.45);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.85);
 }
-
-/* 10. S'ASSURER QUE .active NE BOUGEO PAS AU SURVOL */
-/* Cette partie gère le "saut" que tu voyais.
-   Quand le bouton est .active ET :hover, on veut 
-   qu'il se comporte EXACTEMENT comme un :hover normal.
-*/
 .side-nav .nav-btn.active:hover {
-  /* On s'assure qu'il s'élargit comme les autres */
-  width: 150px; 
-  border-radius: 30px;
+    width: 150px; 
+    border-radius: 30px;
+}
+.side-nav .nav-btn.active:hover .nav-content {
+    justify-content: flex-start;
+    padding-left: 14px;
 }
 
-/* On s'assure que le contenu s'aligne à gauche */
-.side-nav .nav-btn.active:hover .nav-content {
-  justify-content: flex-start;
-  padding-left: 14px;
+/* ------------------------------
+    EFFET D'APPARITION AU SCROLL (Inchangé)
+------------------------------ */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal-item.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
