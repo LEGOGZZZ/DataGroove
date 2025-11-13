@@ -58,7 +58,6 @@ a:hover {
     animation: fadeIn 1.5s ease-in-out;
 }
 
-
 /* RESTAURATION : L'animation elle-même */
 @keyframes fadeIn {
     0% { opacity: 0; transform: scale(0.9); }
@@ -150,7 +149,6 @@ svg {
     max-width: 800px;
     margin: 0 auto;
 }
-
 
 /* ------------------------------
     SECTION 3 - VINYLE USA
