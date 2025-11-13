@@ -12,7 +12,7 @@ body {
   background-image: url('img/fond.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: fixed; 
   background-repeat: no-repeat;
   color: white;
 }
@@ -51,10 +51,12 @@ a:hover {
   mask-size: cover;
 }
 
+
 .logo-intro {
-  width: 600px;
+  width: 600px; 
   animation: fadeIn 1.5s ease-in-out;
 }
+
 
 /* Animation d’apparition */
 @keyframes fadeIn {
@@ -73,11 +75,11 @@ a:hover {
 
 #accueil .logo-small {
   position: absolute;
-  top: 20px;
-  left: 50%;
+  top: 20px;          
+  left: 50%;          
   transform: translateX(-50%);
-  width: 400px;
-  z-index: 1000;
+  width: 400px;      
+  z-index: 1000;      
 }
 
 /* Contenu accueil */
@@ -106,6 +108,7 @@ a:hover {
 /* ------------------------------
    SECTION 2 - RETOUR DU VINYLE EN FRANCE
 ------------------------------ */
+
 #france {
   background: url('fond-vinyle.jpg') center/cover no-repeat;
   color: #fff;
@@ -154,6 +157,7 @@ svg {
   margin: 0 auto;
 }
 
+
 /* ------------------------------
    SECTION 3 - VINYLE USA
 ------------------------------ */
@@ -182,13 +186,255 @@ svg {
   font-size: 2rem;
   margin-bottom: 20px;
 }
-#top10 ol {
-  font-size: 1.2rem;
-  margin-top: 10px;
-  padding-left: 20px;
+
+/* PODIUM */
+.podium-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 60px;
+  margin-top: 50px;
+  margin-bottom: 60px;
 }
-#top10 li {
-  margin-bottom: 10px;
+
+.podium {
+  position: relative;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.podium-cover {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.podium .album-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid rgba(255,255,255,0.35);
+  display: block;
+}
+
+.podium-btn-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: auto;
+}
+
+.podium-btn {
+  width: 52px;
+  height: 52px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: black;
+
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #ddd 100%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  transform: scale(1);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.podium-btn:hover {
+  transform: scale(1.15);
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #bbb 100%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.podium-btn:active {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.podium-btn[aria-pressed="true"] {
+  background: radial-gradient(circle at 70% 70%, #ff6666 0%, #aa0000 100%);
+  color: white;
+  box-shadow: 0 0 25px rgba(255, 50, 50, 0.6);
+}
+
+.podium-bar {
+  width: 230px;
+  border-radius: 12px;
+}
+
+.podium-1 .podium-bar {
+  height: 250px;
+  background: linear-gradient(to top, gold, #fff);
+}
+
+.podium-2 .podium-bar {
+  height: 190px;
+  background: linear-gradient(to top, silver, #fff);
+}
+
+.podium-3 .podium-bar {
+  height: 140px;
+  background: linear-gradient(to top, peru, #fff);
+}
+
+.album-label {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.05em;
+}
+.album-label a {
+  color: #fff;
+  text-decoration: none;
+}
+.album-label a:hover {
+  text-decoration: underline;
+}
+
+/* TOP 4-10 BARRES */
+.top10-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.album-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.album-bar .album-cover {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.listen-btn {
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #ddd 100%);
+  border: none;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  font-size: 25px;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.25s ease-in-out;
+  line-height: 1;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.listen-btn:hover {
+  transform: scale(1.15);
+  background: radial-gradient(circle at 30% 30%, #fff 0%, #bbb 100%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.listen-btn:active {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.listen-btn[aria-pressed="true"] {
+  background: radial-gradient(circle at 70% 70%, #ff6666 0%, #aa0000 100%);
+  color: white;
+  box-shadow: 0 0 25px rgba(255, 50, 50, 0.6);
+}
+
+.bar-full {
+  height: 60px; 
+  border-radius: 10px; 
+  width: var(--bar-width); 
+  background: linear-gradient(
+    to right,
+    rgba(220, 50, 50, 0.95) 0%,
+    rgba(220, 50, 50, 0.90) calc(var(--bar-width, 80%) - 30px),
+    rgba(220, 50, 50, 0.50) calc(var(--bar-width, 80%)),
+    rgba(220, 220, 220, 0.05) 100%
+  );
+  display: flex; 
+  align-items: center; 
+  padding-left: 20px; 
+  transition: transform 0.3s ease; 
+}
+
+.bar-full a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.bar-full a:hover {
+  text-decoration: underline;
+}
+
+/* === ANIMATION APPARITION FLUIDE + REBOND === */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateX(-80px) scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.22, 1.5, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Délais progressifs pour effet en cascade */
+.podium.animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+.podium.animate-on-scroll:nth-child(2) { transition-delay: 0.3s; }
+.podium.animate-on-scroll:nth-child(3) { transition-delay: 0.5s; }
+
+.album-bar.animate-on-scroll:nth-child(1) { transition-delay: 0.1s; }
+.album-bar.animate-on-scroll:nth-child(2) { transition-delay: 0.2s; }
+.album-bar.animate-on-scroll:nth-child(3) { transition-delay: 0.3s; }
+.album-bar.animate-on-scroll:nth-child(4) { transition-delay: 0.4s; }
+.album-bar.animate-on-scroll:nth-child(5) { transition-delay: 0.5s; }
+.album-bar.animate-on-scroll:nth-child(6) { transition-delay: 0.6s; }
+.album-bar.animate-on-scroll:nth-child(7) { transition-delay: 0.7s; }
+
+/* Optionnel : petite pulsation une fois visible */
+.animate-on-scroll.visible {
+  animation: popIn 0.6s ease-out 0.2s;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.95); }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 /* ------------------------------
@@ -227,9 +473,8 @@ svg {
   }
 }
 
-/* ---- SIDEBAR (Stratégie "Position Absolute" - LA BONNE !) ---- */
+/* ---- NAVIGATION LATERALE ---- */
 
-/* Le conteneur principal de la nav */
 .side-nav {
   position: fixed;
   right: 3%;
@@ -238,126 +483,87 @@ svg {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding: 18px 12px;
-  background: rgba(255,255,255,0.10);
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 40px;
   backdrop-filter: blur(14px);
-  border-radius: 50px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
   z-index: 1000;
-  box-sizing: border-box;
 }
 
-/* 1. Le bouton <a> (devient "position: relative") */
+/* Boutons ronds contenant une image */
 .side-nav .nav-btn {
-  box-sizing: border-box;
-  position: relative; /* IMPORTANT: pour positionner le label */
   width: 52px;
   height: 52px;
-  padding: 0;
-  margin: 0;
   border-radius: 50%;
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.25);
-  text-decoration: none;
-  color: white;
-  overflow: hidden; /* Masque le label qui dépasse */
-  transition: width 0.35s ease, border-radius 0.35s ease, background 0.35s ease;
-}
-
-/* 2. Le wrapper interne (gère TOUT le centrage) */
-.side-nav .nav-content {
-  width: 100%;
-  height: 100%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
   align-items: center;
-  justify-content: center; /* PAR DÉFAUT: centre l'icône */
-  box-sizing: border-box;
-  
-  /* C'est ce qui va bouger l'icône */
-  padding-left: 0; /* par défaut */
-  transition: justify-content 0.35s ease, padding-left 0.35s ease;
+  justify-content: center;
+  text-decoration: none;
+  transition: 0.25s ease-in-out;
 }
 
-/* 3. L'icône (simple) */
-.side-nav .nav-content img {
-  width: 26px;
-  height: 26px;
-  display: block;
+/* Format des icônes */
+.side-nav .nav-btn img {
+  width: 55%;
+  height: 55%;
   object-fit: contain;
-  transition: transform 0.28s ease, width 0.28s ease, height 0.28s ease;
-  flex-shrink: 0; /* S'assure qu'elle ne soit jamais écrasée */
 }
 
-/* 4. Le label (maintenant en "position: absolute") */
-.side-nav .nav-label { /* On cible le label directement */
-  position: absolute; /* !!! LA CLÉ !!! */
-  top: 50%;
-  
-  /* Positionné à gauche, à côté de l'icône (14px padding + 28px icone + 8px gap) */
-  left: 50px; 
-  transform: translateY(-50%) translateX(-8px); /* Centré verticalement, décalé à droite */
-  
-  opacity: 0;
-  white-space: nowrap;
-  font-weight: 600;
-  font-size: 0.92rem;
-  pointer-events: none; /* Ne peut pas être cliqué */
-  
-  /* Transition avec un léger délai pour que ce soit fluide */
-  transition: opacity 0.28s ease 0.1s, transform 0.28s ease 0.1s;
-}
-
-/* --- HOVER --- */
-
-/* 5. Le bouton au survol (s'élargit) */
+/* Effet hover */
 .side-nav .nav-btn:hover {
-  width: 150px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.35);
-  box-shadow: 0 0 14px rgba(255,255,255,0.7);
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
 }
 
-/* 6. Le wrapper interne au survol (pousse l'icône) */
-.side-nav .nav-btn:hover .nav-content {
-  justify-content: flex-start; /* Aligne l'icône à gauche */
-  padding-left: 14px; /* Crée l'espace à gauche */
+/* Scroll fluide */
+html {
+  scroll-behavior: smooth;
 }
 
-/* 7. L'icône au survol (grandit un peu) */
-.side-nav .nav-btn:hover .nav-content img {
-  width: 28px;
-  height: 28px;
+/* Masquer la barre sur mobile */
+@media (max-width: 750px) {
+  .side-nav {
+    display: none;
+  }
 }
 
-/* 8. Le label au survol (il apparaît) */
-.side-nav .nav-btn:hover .nav-label {
+/* Barre cachée initialement */
+.side-nav.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Barre visible après déclenchement */
+.side-nav.visible {
   opacity: 1;
-  transform: translateY(-50%) translateX(0); /* Vient à sa place */
   pointer-events: auto;
+  transform: translateY(-50%) scale(1);
 }
 
-/* --- ACTIVE --- */
-
-/* 9. État actif (rond et icône centré) */
+/* Bouton actif */
 .side-nav .nav-btn.active {
-  /* On ne met QUE les styles visuels */
-  background: rgba(255,255,255,0.45);
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.85);
+  transform: scale(1.25);
 }
 
-/* 10. S'ASSURER QUE .active NE BOUGEO PAS AU SURVOL */
-/* Cette partie gère le "saut" que tu voyais.
-   Quand le bouton est .active ET :hover, on veut 
-   qu'il se comporte EXACTEMENT comme un :hover normal.
-*/
-.side-nav .nav-btn.active:hover {
-  /* On s'assure qu'il s'élargit comme les autres */
-  width: 150px; 
-  border-radius: 30px;
+/* Animation au survol */
+.side-nav .nav-btn:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
 }
 
-/* On s'assure que le contenu s'aligne à gauche */
-.side-nav .nav-btn.active:hover .nav-content {
-  justify-content: flex-start;
-  padding-left: 14px;
+/* Image taille correcte */
+.side-nav .nav-btn img {
+  width: 55%;
+  height: 55%;
+  object-fit: contain;
 }
+
