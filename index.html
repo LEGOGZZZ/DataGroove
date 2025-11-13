@@ -92,21 +92,187 @@
         il dépasse à nouveau le CD : une première depuis les années 80.
       </p>
     </div>
-  </section>
+    <div class="texte-graph" style="text-align:left; margin-left:0;">
+      Le vinyle, longtemps oublié, s’est imposé comme le symbole d’un retour à l’authentique. <br><br>
+      Depuis 2012, ses ventes ont été multipliées par près de six en France, culminant à plus de 5 millions d’unités vendues en 2024. <br>
+      Ce succès s’explique par la recherche d’un son chaleureux, l’envie de collection et un effet générationnel inattendu : en valeur, le vinyle dépasse pour la première fois le CD depuis les années 80.
+    </div>
+  </div>
+  <script>
+    const vinylesData = [
+      { annee: "2000", ventes: "0,2M", titre: "Michael Jackson – Invincible", cover: "img/jackson2000.jpg", extrait: "son/jackson2000.mp3", youtube: "https://www.youtube.com/watch?v=g8n5IrTU6mU&list=PL74B6627BB23FBCBE" },
+      { annee: "2012", ventes: "0,87M", titre: "Daft Punk – Discovery (réédition)", cover: "img/daftpunk2012.jpg", extrait: "son/daftpunk2012.mp3", youtube: "https://www.youtube.com/watch?v=4whD6uAryMs&list=PLSdoVPM5WnndSQEXRz704yQkKwx76GvPV" },
+      { annee: "2016", ventes: "1,8M", titre: "David Bowie – Blackstar", cover: "img/bowie2016.png", extrait: "son/bowie2016.mp3", youtube: "https://www.youtube.com/watch?v=bXJzjj9lOP8&list=PLunAs_VfWjqeiP68DZVR0Zhn4ZGcPyfJB&index=1" },
+      { annee: "2020", ventes: "4,5M", titre: "Billie Eilish – When We All Fall Asleep, Where Do We Go?", cover: "img/eilish2020.jpg", extrait: "son/eilish2020.mp3", youtube: "https://www.youtube.com/watch?v=5DcrRJI_H04&list=PLMSmPqvJ6siJwH_c2H_N8j9JqDt8ogyny" },
+      { annee: "2022", ventes: "5,0M", titre: "Orelsan – Civilisation", cover: "img/orelsan2022.jpg", extrait: "son/orelsan2022.mp3", youtube: "https://www.youtube.com/watch?v=rXF1Si3LEEU" },
+      { annee: "2024", ventes: "5,1M", titre: "Taylor Swift – 1989 (Taylor's Version)", cover: "img/swift2024.jpg", extrait: "son/swift2024.mp3", youtube: "https://youtu.be/-MtKC5wXqdQ?list=PLxA687tYuMWiHaLuwtNz6edZMBBgrXTL_" }
+    ];
+
+    const points = document.querySelectorAll('.graph-point');
+    const tooltip = document.getElementById('tooltip-fiche');
+    const titreFiche = document.getElementById('titre-vinyle');
+    const anneeFiche = document.getElementById('annee-fiche');
+    const chiffreFiche = document.getElementById('chiffre-fiche');
+    const coverFiche = document.getElementById('cover-fiche');
+    const audioFiche = document.getElementById('audio-fiche');
+    const btnAudio = document.getElementById('btn-audio');
+    const volumeSlider = document.getElementById('volume-slider');
+    const fullTrackLink = document.getElementById('full-track-link');
+
+    let hovertooltip = false;
+    let hideTimeout;
+    let lecture = false;
+
+    points.forEach((pt, idx) => {
+      pt.addEventListener('mouseenter', function () {
+        clearTimeout(hideTimeout);
+        const data = vinylesData[idx];
+
+        titreFiche.textContent = data.titre;
+        anneeFiche.textContent = data.annee;
+        chiffreFiche.textContent = "Ventes totales : " + data.ventes;
+        coverFiche.src = data.cover;
+        audioFiche.src = data.extrait;
+        audioFiche.pause();
+        lecture = false;
+        tooltip.style.display = "block";
+
+        fullTrackLink.href = data.youtube;
+
+        const svg = document.getElementById('svg-vinyle');
+        const ptSVG = svg.createSVGPoint();
+        ptSVG.x = this.cx.baseVal.value;
+        ptSVG.y = this.cy.baseVal.value;
+        const screenCTM = svg.getScreenCTM();
+        const pos = ptSVG.matrixTransform(screenCTM);
+
+        tooltip.style.left = (pos.x - svg.getBoundingClientRect().left - 60) + "px";
+        tooltip.style.top = (pos.y - svg.getBoundingClientRect().top - 135) + "px";
+      });
+
+      pt.addEventListener('mouseleave', function () {
+        hideTimeout = setTimeout(() => {
+          if (!hovertooltip) {
+            tooltip.style.display = "none";
+            audioFiche.pause();
+            audioFiche.currentTime = 0;
+            lecture = false;
+            btnAudio.textContent = 'Écouter un extrait';
+          }
+        }, 300);
+      });
+    });
+
+    tooltip.addEventListener('mouseenter', () => {
+      hovertooltip = true;
+      clearTimeout(hideTimeout);
+    });
+
+    tooltip.addEventListener('mouseleave', () => {
+      hovertooltip = false;
+      hideTimeout = setTimeout(() => {
+        tooltip.style.display = "none";
+        audioFiche.pause();
+        audioFiche.currentTime = 0;
+        lecture = false;
+        btnAudio.textContent = 'Écouter un extrait';
+      }, 300);
+    });
+
+    btnAudio.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (lecture) {
+        audioFiche.pause();
+        btnAudio.textContent = 'Écouter un extrait';
+        lecture = false;
+      } else {
+        audioFiche.play();
+        btnAudio.textContent = 'Pause';
+        lecture = true;
+      }
+
+      volumeSlider.value = 0.5;
+      audioFiche.volume = volumeSlider.value;
+
+      volumeSlider.addEventListener('input', () => {
+        audioFiche.volume = volumeSlider.value;
+      });
+    });
+  </script>
+</section>
+
+
 
   <!-- SECTION 3 : Retour du vinyle aux États-Unis -->
-  <section id="usa" class="section">
-    <div class="container">
-      <h2 class="reveal-item">Évolution des ventes de vinyles</h2>
-      <!-- Graphique -->
-      <div class="graph-placeholder reveal-item">[Graphique USA à insérer ici]</div>
-      <p class="reveal-item">
-        Découvrez comment les ventes de vinyles ont évolué au fil des années aux États-Unis.
-        Là où l’industrie semblait tourner la page, le disque vinyle a retrouvé une voix puissante,
-        redessinant le paysage musical américain.
-      </p>
-    </div>
-  </section>
+
+<section id="usa" class="section">
+    <div class="container">
+      <h2>Évolution des ventes de vinyles</h2>
+            <div class="graph-container">
+        <canvas id="usaVinylChart" width="650" height="400"></canvas>
+      </div>
+      <p>
+Découvrez comment les ventes de vinyles ont évolué au fil des années aux États-Unis.
+Là où l’industrie semblait tourner la page, le disque vinyle a retrouvé une voix puissante,
+redessinant le paysage musical américain.
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+  const ctxUSA = document.getElementById('usaVinylChart').getContext('2d');
+  // Data sélectionnée d'après la source RIAA et Statista, chiffres représentatifs (à affiner selon tes besoins)
+  const usaVinylData = {
+    labels: [
+      '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
+      '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
+      '2015','2016','2017','2018','2019','2020'
+    ],
+    datasets: [{
+      label: 'Vinyl Sales (Million Units)',
+      data: [
+        2.2, 2.7, 2.6, 3.3, 3.0, 2.3, 2.4, 1.6, 1.5, 1.3,
+        1.1, 1.5, 2.6, 3.4, 4.2, 5.5, 6.9, 9.4, 10.3, 13.5,
+        14.9, 15.9, 17.2, 18.7, 21.0, 23.5
+      ],
+      backgroundColor: '#FF375F',
+      borderColor: '#FF375F',
+      borderWidth: 1,
+      borderRadius: 5
+    }]
+  };
+
+  new Chart(ctxUSA, {
+    type: 'bar',
+    data: usaVinylData,
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 25,
+          ticks: { stepSize: 5 }
+        },
+        x: {
+          ticks: {
+            maxRotation: 45,
+            minRotation: 45
+          }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'US Annual Music Sales in Vinyl (LP)',
+          font: { size: 18, weight: 'bold' },
+          color: '#fff'
+        }
+      }
+    }
+  });
+  </script>
 
   <!-- SECTION 4 : Top 10 des vinyles 2024 -->
   <section id="top10" class="section">

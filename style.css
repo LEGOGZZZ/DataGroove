@@ -108,25 +108,32 @@ a:hover {
     CONTENEUR DE SECTION STANDARD (Glassmorphism)
 ------------------------------ */
 
-/* STANDARDISATION : S'applique à #france, #usa, #top3 */
-.section .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    border-radius: 24px;
-    padding: 60px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    text-align: center;
+#france {
+  color: #fff;
+  padding: 100px 10%;
+  position: relative;
+}
+
+#france .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 60px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 #france h2 {
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 40px;
-    font-family: "Poppins", "Helvetica Neue", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  font-family: "Poppins", "Helvetica Neue", sans-serif;
+  text-align: center;
 }
 
+/* Utilisation des styles d'index.html précédent pour le flux */
 .graph-container {
     width: 100%;
     margin: 0 auto 50px;
@@ -142,34 +149,288 @@ svg {
 }
 
 #france .texte-graph {
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.7;
-    max-width: 800px;
-    margin: 0 auto;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 50px 0; 
+  text-align: justify; 
 }
+
+/* Tooltip interactive - STYLE iOS 16 GLASSMORPHE */
+.tooltip-fiche {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  min-width: 230px;
+  max-width: 300px;
+  padding: 18px 20px 16px 20px;
+  
+  /* GLASSMORPHISM */
+  background: rgba(28, 35, 51, 0.4); 
+  backdrop-filter: blur(20px); 
+  border: 1.5px solid rgba(255,255,255,0.7); 
+  box-shadow: 0 10px 30px 4px #0a143320, 0 1.5px 12px #292c3cc9;
+  
+  border-radius: 22px;
+  pointer-events: auto;
+  text-align: left;
+  transition: opacity 0.12s;
+}
+
+.pop-fiche {
+  color: #C6CBD4;
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 6px;
+  letter-spacing: 0.1px;
+}
+
+.chiffre-fiche {
+  color: #fff;
+  font-size: 1.04rem;
+  font-weight: 500;
+  margin-bottom: 9px;
+}
+
+.titre-fiche {
+  color: #fff;
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* MODIFICATION: Année plus grosse et harmonisée au Rose/Fuchsia */
+.annee-fiche {
+  color: #FF375F; /* Rose/Fuchsia pour le contraste maximal */
+  font-size: 1.8rem; /* Augmenté */
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.img-fiche {
+  width: 86px;
+  height: 86px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 2.5px 12px #1d2b4160;
+  margin-bottom: 11px;
+  display: block;
+  border: 1.2px solid #fff;
+}
+
+/* Bouton audio - Style iOS (transparent, haut contraste) */
+.btn-audio {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  
+  /* Nouveau style iOS */
+  background: rgba(255, 255, 255, 0.2); 
+  color: #222; /* Texte noir pour contraste sur fond clair semi-transparent */
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 12px; 
+  padding: 11px 18px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.3), 0 1px 3px rgba(0, 0, 0, 0.6);
+  transition: background 0.18s, color 0.18s;
+  text-shadow: none;
+}
+
+.btn-audio:hover,
+.btn-audio:focus {
+  background: rgba(255, 255, 255, 0.35); 
+  color: #000;
+  outline: none;
+}
+
+.tooltip-fiche,
+.tooltip-fiche * {
+  font-family: 'SF Pro', 'Arial', 'Helvetica Neue', sans-serif;
+  text-shadow: 0 2px 5px #29405D20;
+}
+
+/* Style du lien "Écouter le morceau en entier" - Rose/Fuchsia pour le contraste maximal */
+.full-track-link {
+  display:block; 
+  margin-top:14px; 
+  color:#FF375F !important; /* Rose/Fuchsia */
+  text-align:center; 
+  font-weight:600; 
+  text-decoration:underline !important;
+  border-radius:6px; 
+  padding:6px 0 4px 0; 
+  transition: color 0.18s, background 0.18s;
+}
+
+.full-track-link:hover, .full-track-link:focus {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: underline;
+}
+
+/* Complément de style pour le contrôle du volume */
+
+.volume-control {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+.volume-label {
+  color: #c6cbd4;
+  font-size: 0.95rem;
+  width: 50px;
+  text-align: right;
+}
+
+/* MODIFICATIONS DE LA BARRE DE VOLUME POUR CLARTÉ, ACCESSIBILITÉ ET MODERNITÉ */
+.volume-slider {
+  flex-grow: 1;
+  height: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  /* La couleur inactive (gris foncé et transparent) */
+  background: rgba(0, 0, 0, 0.4); 
+}
+
+/* Pour les navigateurs Webkit (Chrome, Safari) */
+.volume-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+}
+
+/* Couleur de progression pour Webkit (simulé par background sur le slider) */
+.volume-slider {
+  background: linear-gradient(to right, #FF375F 50%, rgba(0, 0, 0, 0.4) 50%); /* Progression en Rose/Fuchsia */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff; /* Blanc pour contraste maximum */
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.6); 
+  border: none; 
+  margin-top: -6px;
+}
+
+/* Pour Firefox */
+.volume-slider::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+}
+
+.volume-slider::-moz-range-progress {
+  /* La couleur de progression de Firefox */
+  background: #FF375F; /* Rose/Fuchsia pour la progression */
+  border-radius: 6px;
+  height: 6px;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+/* Style pour focus */
+.volume-slider:focus {
+  outline: none;
+  box-shadow: 0 0 6px #FF375F; /* Le Rose/Fuchsia pour l'indication de focus */
+}
+
+
 
 /* ------------------------------
     SECTION 3 - VINYLE USA
 ------------------------------ */
+#usa {
+  color: #fff;
+  padding: 100px 10%;
+  position: relative;
+}
+
+#usa .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 60px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
 #usa h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  font-family: "Poppins", "Helvetica Neue", sans-serif;
+  text-align: center;
 }
-#usa .graph-placeholder {
-    width: 100%;
-    height: 300px;
-    border: 2px dashed white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+
+/* Phrasing de contexte pour remplacer le titre du graphique (si utilisé) */
+.texte-usa-contexte { 
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 30px 0;
+  text-align: justify;
 }
-#usa p {
-    font-size: 1.1rem;
-    line-height: 1.6;
+
+#usa .graph-container {
+  width: 100%;
+  margin: 0 auto 50px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  box-sizing: border-box;
+  overflow-x: auto;
 }
+
+#usa canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 650px;
+  display: block;
+  margin: 0 auto;
+}
+
+#usa p { 
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 50px 0; 
+  text-align: justify; 
+}
+
 
 /* ------------------------------
    SECTION 4 - TOP 10

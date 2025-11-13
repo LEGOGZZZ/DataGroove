@@ -1,0 +1,234 @@
+
+
+/* Structure globale */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 60px auto 80px auto;
+  padding: 30px 28px;
+  background: rgba(28, 28, 30, 0.65);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Titres */
+h1, h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #e84545;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 8px rgba(232, 69, 69, 0.6);
+  margin-bottom: 24px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid rgba(232, 69, 69, 0.3);
+  padding-bottom: 6px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* Intro paragraph */
+.intro {
+  font-size: 1.2rem;
+  color: #c7d0eb;
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.source-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.source-list li {
+  margin-bottom: 30px;
+  color: #e0e0e0;
+  font-size: 1.13rem;
+  line-height: 1.5;
+}
+
+.source-list strong {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.08em;
+}
+
+.source-list em {
+  color: #cdcddd;
+  font-style: italic;
+  display: block;
+  margin: 6px 0 0 0;
+  font-size: 0.98em;
+}
+
+.source-list a {
+  display: block;
+  margin-top: 8px;
+  color: whitesmoke;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 1em;
+  transition: color 0.2s;
+}
+
+.source-list a:hover,
+.source-list a:focus {
+  color: #ff375f;
+  text-decoration: underline;
+}
+
+
+/* Style pour la section détaillée des sources musicales et images */
+
+.detailed-sources {
+  background: rgba(28, 28, 30, 0.7);
+  border-radius: 20px;
+  padding: 32px 30px;
+  margin-top: 48px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.detailed-sources h2 {
+  color: #ff375f;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  text-shadow: 0 1px 6px rgba(255, 55, 95, 0.7);
+}
+
+.detailed-sources ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.detailed-sources li {
+  margin-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 22px;
+}
+
+.detailed-sources li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.detailed-sources strong {
+  display: inline-block;
+  width: 140px;
+  color: #ff637b;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+.detailed-sources a {
+  color: #5ac8fa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.25s ease-in-out;
+}
+
+.detailed-sources a:hover,
+.detailed-sources a:focus {
+  color: #ff375f;
+  text-decoration: underline;
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .detailed-sources {
+    font-size: 1rem;
+    padding: 24px 20px;
+    margin-top: 36px;
+  }
+
+  .detailed-sources h2 {
+    font-size: 1.6rem;
+    margin-bottom: 22px;
+  }
+
+  .detailed-sources strong {
+    width: 110px;
+  }
+}
+
+/* Paragraph */
+p {
+  font-size: 1.1rem;
+  color: #cdcddd;
+  line-height: 1.5;
+}
+
+p strong {
+  color: #ffffff;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 30px 15px 40px;
+  font-size: 0.95rem;
+  color: #a2a9be;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  letter-spacing: 0.02em;
+}
+
+.site-footer a {
+  color: #a2a9be;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+  color: #ff4b6e;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    margin: 40px 16px 60px 16px;
+    padding: 25px 22px;
+  }
+  h1 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .source-list li,
+  p,
+  .intro {
+    font-size: 1rem;
+  }
+}
