@@ -32,21 +32,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Observer pour le bouton ".active" de la nav
-    const sectionObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    const activeBtn = document.querySelector(`.nav-btn[data-section="${id}"]`);
-                    if (activeBtn) {
-                        navButtons.forEach((btn) => btn.classList.remove('active'));
-                        activeBtn.classList.add('active');
-                    }
+    // Observer pour le bouton ".active" de la nav
+const sectionObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                const activeBtn = document.querySelector(`.nav-btn[data-section="${id}"]`);
+
+                // 1. On efface TOUS les boutons actifs (en dehors du "if")
+                navButtons.forEach((btn) => btn.classList.remove('active'));
+
+                // 2. On active le bon bouton SEULEMENT s'il existe
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
                 }
-            });
-        },
-        { threshold: 0.6 }
-    );
+                // Si activeBtn n'existe pas (ex: c'est le footer),
+                // tous les boutons restent simplement éteints.
+            }
+        });
+    },
+    { 
+        threshold: 0.2 // 1. ON MET UN SEUIL TRÈS BAS (ex: 5%)
+    }
+);
+
+sections.forEach((section) => sectionObserver.observe(section));
     sections.forEach((section) => sectionObserver.observe(section));
 
     // --- 2. NOUVELLE LOGIQUE : "REVEAL ON SCROLL" ---
