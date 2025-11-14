@@ -226,7 +226,6 @@ redessinant le paysage musical américain.
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
   const ctxUSA = document.getElementById('usaVinylChart').getContext('2d');
-  // Data sélectionnée 
   const usaVinylData = {
     labels: [
       '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
@@ -256,17 +255,32 @@ redessinant le paysage musical américain.
         y: {
           beginAtZero: true,
           max: 25,
-          ticks: { stepSize: 5 }
+          ticks: { 
+                stepSize: 5,
+                color: '#fff' 
+            },
+            grid: {
+                color: 'rgba(255, 255, 255, 0.15)' 
+            }
         },
         x: {
           ticks: {
             maxRotation: 45,
-            minRotation: 45
-          }
+            minRotation: 45,
+             color: '#fff' 
+          },
+            grid: {
+                color: 'rgba(255, 255, 255, 0.15)' 
+            }
         }
       },
       plugins: {
-        legend: { display: false },
+        legend: { 
+            display: true, 
+            labels: {
+                color: '#fff' 
+            }
+        },
         title: {
           display: true,
           text: 'Ventes annuelles de vinyles aux États-Unis',
