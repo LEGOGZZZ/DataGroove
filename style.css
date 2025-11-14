@@ -98,10 +98,19 @@ a:hover {
     font-size: 1.3rem;
     line-height: 1.6;
 
-    /* --- AJOUT --- */
-  /* On pousse le texte vers la droite */
-  /* (800px de vinyle - 300px hors écran + 50px de gap) */
-  margin-left: 550px;
+    /* On garde la marge à gauche pour laisser place au vinyle */
+    margin-left: 300px;
+    margin-top: -10px;
+    
+    /* On ajoute une largeur max pour que le bloc ne s'étire pas trop */
+    max-width: 800px; 
+
+    /* --- AJOUT DE L'EFFET VERRE --- */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 24px; /* Bords arrondis */
+    padding: 40px; /* Marge intérieure pour que le texte respire */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Vinyle à gauche qui tourne */
@@ -138,7 +147,10 @@ a:hover {
   position: relative;
 }
 
-#france .container {
+/* On applique le même style aux 3 conteneurs */
+#france .container,
+#usa .container,
+#top10 .container {
   max-width: 1000px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.08);
@@ -394,17 +406,6 @@ svg {
   color: #fff;
   padding: 100px 10%;
   position: relative;
-}
-
-#usa .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  border-radius: 24px;
-  padding: 60px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  text-align: center;
 }
 
 #usa h2 {
