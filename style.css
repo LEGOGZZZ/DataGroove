@@ -86,17 +86,41 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 50px;
+
+/* --- AJOUTS --- */
+  /* Nécessaire pour que z-index fonctionne */
+  position: relative; 
+  /* On s'assure que le texte est DEVANT le vinyle */
+  z-index: 2;
 }
 
 .texte-accueil {
     font-size: 1.3rem;
     line-height: 1.6;
+
+    /* --- AJOUT --- */
+  /* On pousse le texte vers la droite */
+  /* (800px de vinyle - 300px hors écran + 50px de gap) */
+  margin-left: 550px;
 }
 
 /* Vinyle à gauche qui tourne */
 .vinyle-anim {
-    width: 1000px;
+    width: 650px;
     animation: rotation 4s linear infinite;
+
+/* --- MODIFICATIONS --- */
+  position: absolute;
+  top: -30%; /* On le centre verticalement */
+  
+  /* On le décale vers la gauche, HORS DE L'ÉCRAN */
+  left: -500px; 
+  
+  /* Astuce pour un centrage vertical parfait */
+  transform: translateY(-50%); 
+  
+  /* On s'assure qu'il est derrière le texte */
+  z-index: 1;
 }
 
 @keyframes rotation {
