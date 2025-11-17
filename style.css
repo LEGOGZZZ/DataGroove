@@ -8,7 +8,8 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     /* RESTAURATION : Fond d'origine */
     background-image: url('img/fond.jpg');
     background-size: cover;
@@ -162,11 +163,24 @@ a:hover {
 }
 
 #france h2 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 40px;
-  font-family: "Poppins", "Helvetica Neue", sans-serif;
-  text-align: center;
+    /* 1. On remet une police propre */
+    font-family: "Montserrat", sans-serif; 
+    font-weight: 800;
+    font-size: 2rem; /* Augmente ce chiffre si tu veux encore plus gros (ex: 3.5rem) */
+    text-transform: uppercase; /* Optionnel : rend le titre plus impactant en majuscules */
+    
+    /* 2. La couleur du texte (Blanc pur) */
+    color: #ffffff;
+
+    /* 3. LA MAGIE DU NÉON (Superposition d'ombres) */
+    text-shadow: 
+        0 0 4px #fff,      /* 1ère couche : Le bord net et brillant */
+        0 0 40px rgba(255, 255, 255, 0.5); /* 4ème couche : L'atmosphère diffuse */
+        
+    /* Optionnel : un peu d'espacement pour aérer le néon */
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 /* Utilisation des styles d'index.html précédent pour le flux */
@@ -186,7 +200,7 @@ svg {
 
 #france .texte-graph {
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   max-width: 800px;
@@ -409,11 +423,24 @@ svg {
 }
 
 #usa h2 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 40px;
-  font-family: "Poppins", "Helvetica Neue", sans-serif;
-  text-align: center;
+    /* 1. On remet une police propre */
+    font-family: "Montserrat", sans-serif; 
+    font-weight: 800;
+    font-size: 2rem; /* Augmente ce chiffre si tu veux encore plus gros (ex: 3.5rem) */
+    text-transform: uppercase; /* Optionnel : rend le titre plus impactant en majuscules */
+    
+    /* 2. La couleur du texte (Blanc pur) */
+    color: #ffffff;
+
+    /* 3. LA MAGIE DU NÉON (Superposition d'ombres) */
+    text-shadow: 
+        0 0 4px #fff,      /* 1ère couche : Le bord net et brillant */
+        0 0 40px rgba(255, 255, 255, 0.5); /* 4ème couche : L'atmosphère diffuse */
+        
+    /* Optionnel : un peu d'espacement pour aérer le néon */
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 /* Phrasing de contexte pour remplacer le titre du graphique (si utilisé) */
@@ -448,7 +475,7 @@ svg {
 
 #usa p { 
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   max-width: 800px;
@@ -461,8 +488,31 @@ svg {
    SECTION 4 - TOP 10
 ------------------------------ */
 #top10 h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+    /* 1. On remet une police propre */
+    font-family: "Montserrat", sans-serif; 
+    font-weight: 800;
+    font-size: 2rem; /* Augmente ce chiffre si tu veux encore plus gros (ex: 3.5rem) */
+    text-transform: uppercase; /* Optionnel : rend le titre plus impactant en majuscules */
+    
+    /* 2. La couleur du texte (Blanc pur) */
+    color: #ffffff;
+
+    /* 3. LA MAGIE DU NÉON (Superposition d'ombres) */
+    text-shadow: 
+        0 0 4px #fff,      /* 1ère couche : Le bord net et brillant */
+        0 0 40px rgba(255, 255, 255, 0.5); /* 4ème couche : L'atmosphère diffuse */
+        
+    /* Optionnel : un peu d'espacement pour aérer le néon */
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+p{
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
 
 /* PODIUM */
@@ -562,28 +612,62 @@ svg {
   border-radius: 12px;
 }
 
+/* --- PODIUM AVEC 3 IMAGES PERSONNALISÉES --- */
+
+.podium-bar {
+  width: 230px;
+  
+  /* Arrondi pour correspondre à l'esthétique de ton image */
+  border-radius: 20px; 
+  
+  /* IMPORTANT : Force l'image à prendre EXACTEMENT la taille de la barre */
+  background-size: 100% 100%; 
+  background-repeat: no-repeat;
+  background-position: center;
+
+  /* Ombre pour que la barre ne "flotte" pas dans le vide */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5), /* Ombre portée */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1); /* Fine bordure interne subtile */
+}
+
+/* --- CONFIGURATION DE CHAQUE COLONNE --- */
+
+/* 1er Place (Le plus grand) */
 .podium-1 .podium-bar {
   height: 250px;
-  background: linear-gradient(to top, gold, #fff);
+  background-image: url('img/chrome-1.png'); /* Ton image pour la 1ère place */
 }
 
+/* 2ème Place */
 .podium-2 .podium-bar {
   height: 190px;
-  background: linear-gradient(to top, silver, #fff);
+  background-image: url('img/chrome-2.png'); /* Ton image pour la 2ème place */
 }
 
+/* 3ème Place */
 .podium-3 .podium-bar {
   height: 140px;
-  background: linear-gradient(to top, peru, #fff);
+  background-image: url('img/chrome-3.png'); /* Ton image pour la 3ème place */
 }
 
 .album-label {
   text-align: center;
   display: block;
-  margin-top: 10px;
+  margin-top: 15px; /* Un peu plus d'espace */
   color: #fff;
   font-weight: bold;
   font-size: 1.05em;
+  
+  /* --- LA CORRECTION D'ALIGNEMENT --- */
+  height: 50px; /* On force une hauteur fixe pour tout le monde (assez pour 2 lignes) */
+  
+  /* On s'assure que le texte est bien géré à l'intérieur */
+  display: flex;
+  align-items: flex-start; /* Le texte commence en haut de sa zone */
+  justify-content: center; /* Centré horizontalement */
+  overflow: hidden; /* Coupe si jamais c'est trop long (sécurité) */
+  line-height: 1.2; /* Interligne serré pour que ça rentre bien */
 }
 .album-label a {
   color: #fff;

@@ -58,7 +58,6 @@ const sectionObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => sectionObserver.observe(section));
-    sections.forEach((section) => sectionObserver.observe(section));
 
     // --- 2. NOUVELLE LOGIQUE : "REVEAL ON SCROLL" ---
     
