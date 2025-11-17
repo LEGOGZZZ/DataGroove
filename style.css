@@ -946,3 +946,41 @@ p{
     opacity: 1;
     transform: translateY(0);
 }
+
+/* --- GESTION DE L'APPARITION DE LA NAV (Intro) --- */
+
+/* 1. On ajoute une transition fluide au conteneur principal */
+.side-nav {
+  /* On s'assure que les mouvements sont fluides */
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+}
+
+/* 2. État CACHÉ (sur l'intro) */
+.side-nav.hidden {
+  opacity: 0;
+  visibility: hidden;
+  /* On la décale vers la droite pour la cacher */
+  transform: translateY(-50%) translateX(150px); 
+  pointer-events: none; /* Empêche de cliquer dessus quand elle est invisible */
+}
+
+/* 3. État VISIBLE (quand on scrolle) */
+.side-nav.visible {
+  opacity: 1;
+  visibility: visible;
+  /* Elle revient à sa place d'origine */
+  transform: translateY(-50%) translateX(0); 
+  pointer-events: auto;
+}
+
+/* 4. L'animation initiale (utilisée par ton script.js) */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
